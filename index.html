@@ -11,31 +11,104 @@
 </head>
 
 <body>
-
-  <form onsubmit="app.controllers.carController.addCar(event)">
-    <label for="make">Make</label>
-    <input type="text" name="make" placeholder="Make" required>
-    <input type="text" name="model" placeholder="Model" required>
-    <input type="number" name="year" placeholder="Year" value="2000" required>
-    <input type="text" name="price" placeholder="Price" required>
-    <input type="text" name="color" placeholder="Color" required>
-    <input type="url" name="imgUrl" placeholder="Image Link" required>
-    <button type="submit">Add Car</button>
-  </form>
-
-  <div class="container">
-    <div id="cars" class="row">
-      <!-- <div class="col-3">
-        <p>${car.make}</p>
-        <p>${car.model}</p>
-        <p>${car.price}</p>
-        <p>${car.year}</p>
-        <p>${car.color}</p>
-        <img src="${car.imgUrl}" alt="somethingelse">
-      </div> -->
+  <header class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <a class "btn btn-primary" href="#car-block">Cars</a>
+        <a class "btn btn-primary" href="#house-block">Houses</a>
+        <a class "btn btn-primary" href="#job-block">Jobs</a>
+      </div>
+      <div class="col-md-6">
+        <h1>WELCOME TO GREG'S LIST</h1>
+      </div>
     </div>
-  </div>
+  </header>
+  <section id="car-block" class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Cars for Sale :</h2>
+      </div>
+    </div>
+    <div id="cars" class="row">
 
+      <!-- insert cars from controller here -->
+
+    </div>
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <form class="form-group needs-validation" onsubmit="app.controllers.carController.addCar(event)" novalidate>
+          <label for="make ">Make</label>
+          <input class="form-control" type="text" name="make" placeholder="Make" required>
+          <label for="make">Model</label>
+          <input class="form-control" type="text" name="model" placeholder="Model" required>
+          <label for="make">Year</label>
+          <input class="form-control" type="number" name="year" placeholder="Year" value="2000" required>
+          <label for="make">Price</label>
+          <input class="form-control" type="text" name="price" placeholder="Price" required>
+          <label for="make">Color</label>
+          <input class="form-control" type="text" name="color" placeholder="Color" required>
+          <label for="make">Image</label>
+          <input class="form-control" type="url" name="imgUrl" placeholder="Image Link" required>
+          <button class="form-control btn btn-primary" type="submit">Add Car</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section id="house-block" class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Houses for Sale :</h2>
+      </div>
+    </div>
+    <div id="houses" class="row">
+
+      <!-- insert houses from controller here -->
+
+    </div>
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <form class="form-group needs-validation" onsubmit="app.controllers.houseController.addHouse(event)" novalidate>
+          <label for="bedrooms">#Bedrooms</label>
+          <input class="form-control" type="number" name="bedrooms" placeholder="#bedrooms" value="3" required>
+
+          <label for="bathrooms">#Bathrooms</label>
+          <input class="form-control" type="number" name="bathrooms" placeholder="#bathrooms" value="2" required>
+
+          <label for="size">Size(sq ft)</label>
+          <input class="form-control" type="number" name="size" placeholder="square footage" value="1500" required>
+
+          <label for="lotSize">Lot Size(sq ft)</label>
+          <input class="form-control" type="number" name="lotSize" placeholder="square footage" value="5000" required>
+
+          <label for="yearBuilt">Year Built</label>
+          <input class="form-control" type="number" name="yearBuilt" placeholder="year" value="2000" required>
+
+          <label for="price">Price</label>
+          <input class="form-control" type="number" name="price" placeholder="#price" value="100000" required>
+
+          <label for="imgURL">Image Link</label>
+          <input class="form-control" type="url" name="imgURL" placeholder="enter URL here" required>
+          <button class="form-control btn btn-primary" type="submit">Add House</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section id="job-block" class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Available Jobs :</h2>
+      </div>
+    </div>
+    <div id="jobs" class="row">
+
+      <!-- insert jobs from controller here -->
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- form here -->
+      </div>
+  </section>
 
   <script src="main.js" type="module"></script>
 </body>
