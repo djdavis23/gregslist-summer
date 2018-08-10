@@ -10,7 +10,7 @@ function drawHouses() {
     <div style="outline: 1px solid black" class="col-md-3">
         <p>Bedrooms: ${house.bedrooms}</p>
         <p>Bathrooms: ${house.bathrooms}</p>
-        <p>Sq Footage: $${house.sqFeet}</p>
+        <p>Sq Footage: ${house.sqFeet}</p>
         <p>Lot Size: ${house.lotSize}</p>
         <p>Year Built: ${house.yrBuilt}</p>
         <p>Price: $${house.price}</p>
@@ -23,13 +23,12 @@ function drawHouses() {
 
 export default class HouseController {
   constructor() {
-
+    drawHouses();
   }
 
   addHouse(event) {
     event.preventDefault();
     let formData = event.target;
-    console.log(formData)
     houseService.addHouse(formData);
     formData.reset();
     drawHouses();

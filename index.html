@@ -11,19 +11,24 @@
 </head>
 
 <body>
-  <header class="container-fluid">
+  <header class="container">
     <div class="row">
       <div class="col-md-4">
-        <a class "btn btn-primary" href="#car-block">Cars</a>
-        <a class "btn btn-primary" href="#house-block">Houses</a>
-        <a class "btn btn-primary" href="#job-block">Jobs</a>
+        <a class="btn btn-primary" href="#car-form">List a Car</a>
+        <a class="btn btn-primary" href="#house-form">List a House</a>
+        <a class="btn btn-primary" href="#job-form">Place Job Ad</a>
       </div>
-      <div class="col-md-6">
-        <h1>WELCOME TO GREG'S LIST</h1>
+      <div class="col-md-4 text-center">
+        <h1>GREG'S LIST</h1>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-success" href="#cars">See Cars</a>
+        <a class="btn btn-success" href="#houses">See Houses</a>
+        <a class="btn btn-success" href="#jobs">See Jobs</a>
       </div>
     </div>
   </header>
-  <section id="car-block" class="container">
+  <section class="container">
     <div class="row">
       <div class="col-md-12 text-center">
         <h2>Cars for Sale :</h2>
@@ -36,13 +41,21 @@
     </div>
     <div class="row">
       <div class="col-md-4 offset-md-4">
-        <form class="form-group needs-validation" onsubmit="app.controllers.carController.addCar(event)" novalidate>
-          <label for="make ">Make</label>
-          <input class="form-control" type="text" name="make" placeholder="Make" required>
-          <label for="make">Model</label>
-          <input class="form-control" type="text" name="model" placeholder="Model" required>
-          <label for="make">Year</label>
-          <input class="form-control" type="number" name="year" placeholder="Year" value="2000" required>
+        <form id="car-form" class="form-group" onsubmit="app.controllers.carController.addCar(event)">
+          <div class="form-row">
+            <div class="col">
+              <label for="make">Year</label>
+              <input class="form-control" type="number" name="year" placeholder="Year" value="2000" required>
+            </div>
+            <div class="col">
+              <label for="make ">Make</label>
+              <input class="form-control" type="text" name="make" placeholder="Make" required>
+            </div>
+            <div class="col">
+              <label for="make">Model</label>
+              <input class="form-control" type="text" name="model" placeholder="Model" required>
+            </div>
+          </div>
           <label for="make">Price</label>
           <input class="form-control" type="text" name="price" placeholder="Price" required>
           <label for="make">Color</label>
@@ -54,7 +67,7 @@
       </div>
     </div>
   </section>
-  <section id="house-block" class="container">
+  <section class="container">
     <div class="row">
       <div class="col-md-12 text-center">
         <h2>Houses for Sale :</h2>
@@ -67,7 +80,7 @@
     </div>
     <div class="row">
       <div class="col-md-4 offset-md-4">
-        <form class="form-group needs-validation" onsubmit="app.controllers.houseController.addHouse(event)" novalidate>
+        <form id="house-form" class="form-group" onsubmit="app.controllers.houseController.addHouse(event)">
           <label for="bedrooms">#Bedrooms</label>
           <input class="form-control" type="number" name="bedrooms" placeholder="#bedrooms" value="3" required>
 
@@ -93,7 +106,7 @@
       </div>
     </div>
   </section>
-  <section id="job-block" class="container-fluid">
+  <section id="job-block" class="container">
     <div class="row">
       <div class="col-md-12 text-center">
         <h2>Available Jobs :</h2>
@@ -103,11 +116,32 @@
 
       <!-- insert jobs from controller here -->
 
+
+
     </div>
     <div class="row">
-      <div class="col-md-12">
-        <!-- form here -->
+      <div class="col-md-4 offset-md-4">
+        <form id="job-form" class="form-group" onsubmit="app.controllers.jobController.addJob(event)">
+          <label for="title">Job Title</label>
+          <input class="form-control" type="text" name="title" placeholder="title" required>
+          <label for="description">Description</label>
+          <textarea name="descriptions" id="description" cols="30" rows="10" class="form-control" placeholder="Enter a brief description of duties here"
+            required></textarea>
+          <label for="skills">Skills Required</label>
+          <textarea name="skills" id="skills" cols="30" rows="5" class="form-control" placeholder="Enter list of required skills here"
+            required></textarea>
+          <label for="hours">Hours per Week</label>
+          <input type="number" class="form-control" name="hours" value="20" required>
+          <label for="benefits">Benefits</label>
+          <input type="text" class="form-control" name="benefits" placeholder="List benefits here or enter 'none'" required>
+          <label for="pocName">Point of Contact</label>
+          <input type="text" class="form-control" name="pocName" placeholder="Enter Name of Hiring Manger here" required>
+          <label for="pocEmail">Email</label>
+          <input type="email" class="form-control" name="pocEmail" placeholder="name@email.com" required>
+          <button class="btn btn-primary form-control" type="submit">Add Job</button>
+        </form>
       </div>
+    </div>
   </section>
 
   <script src="main.js" type="module"></script>

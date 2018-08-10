@@ -9,7 +9,7 @@ export default class HouseService {
   addHouse(formData) {
     let newHouse = new House(
       formData.bedrooms.value,
-      formData.bedrooms.value,
+      formData.bathrooms.value,
       formData.size.value,
       formData.lotSize.value,
       formData.yearBuilt.value,

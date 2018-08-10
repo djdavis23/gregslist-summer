@@ -1,7 +1,7 @@
 
 export default class House {
   constructor(bedrooms, bathrooms, sqFeet, lotSize, yrBuilt, price, imgURL) {
-    this.bedroom = bedrooms;
+    this.bedrooms = bedrooms;
     this.bathrooms = bathrooms;
     this.sqFeet = sqFeet;
     this.lotSize = lotSize;
