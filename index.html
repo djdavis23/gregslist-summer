@@ -44,23 +44,23 @@
         <form id="car-form" class="form-group" onsubmit="app.controllers.carController.addCar(event)">
           <div class="form-row">
             <div class="col">
-              <label for="make">Year</label>
+              <label for="year">Year</label>
               <input class="form-control" type="number" name="year" placeholder="Year" value="2000" required>
             </div>
             <div class="col">
-              <label for="make ">Make</label>
+              <label for="make">Make</label>
               <input class="form-control" type="text" name="make" placeholder="Make" required>
             </div>
             <div class="col">
-              <label for="make">Model</label>
+              <label for="model">Model</label>
               <input class="form-control" type="text" name="model" placeholder="Model" required>
             </div>
           </div>
-          <label for="make">Price</label>
+          <label for="price">Price</label>
           <input class="form-control" type="text" name="price" placeholder="Price" required>
-          <label for="make">Color</label>
-          <input class="form-control" type="text" name="color" placeholder="Color" required>
-          <label for="make">Image</label>
+          <label for="Description">Description</label>
+          <input class="form-control" type="text" name="description" placeholder="Brief Description" required>
+          <label for="imgUrl">Image</label>
           <input class="form-control" type="url" name="imgUrl" placeholder="Image Link" required>
           <button class="form-control btn btn-primary" type="submit">Add Car</button>
         </form>
@@ -81,26 +81,27 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form id="house-form" class="form-group" onsubmit="app.controllers.houseController.addHouse(event)">
-          <label for="bedrooms">#Bedrooms</label>
-          <input class="form-control" type="number" name="bedrooms" placeholder="#bedrooms" value="3" required>
-
-          <label for="bathrooms">#Bathrooms</label>
-          <input class="form-control" type="number" name="bathrooms" placeholder="#bathrooms" value="2" required>
-
-          <label for="size">Size(sq ft)</label>
-          <input class="form-control" type="number" name="size" placeholder="square footage" value="1500" required>
-
-          <label for="lotSize">Lot Size(sq ft)</label>
-          <input class="form-control" type="number" name="lotSize" placeholder="square footage" value="5000" required>
-
-          <label for="yearBuilt">Year Built</label>
-          <input class="form-control" type="number" name="yearBuilt" placeholder="year" value="2000" required>
-
-          <label for="price">Price</label>
-          <input class="form-control" type="number" name="price" placeholder="#price" value="100000" required>
-
-          <label for="imgURL">Image Link</label>
-          <input class="form-control" type="url" name="imgURL" placeholder="enter URL here" required>
+          <label for="bedrooms">#Bedrooms
+            <input class="form-control" type="number" name="bedrooms" placeholder="#bedrooms" value="3" required>
+          </label>
+          <label for="bathrooms">#Bathrooms
+            <input class="form-control" type="number" name="bathrooms" placeholder="#bathrooms" value="2" required>
+          </label>
+          <label for="description">Description
+            <input class="form-control" type="text" name="description" placeholder="Brief Description" required>
+          </label>
+          <label for="levels">Levels
+            <input class="form-control" type="number" name="levels" placeholder="# of levels" required>
+          </label>
+          <label for="yearBuilt">Year Built
+            <input class="form-control" type="number" name="yearBuilt" placeholder="year" value="2000" required>
+          </label>
+          <label for="price">Price
+            <input class="form-control" type="number" name="price" placeholder="#price" value="100000" required>
+          </label>
+          <label for="imgURL">Image Link
+            <input class="form-control" type="url" name="imgURL" placeholder="enter URL here" required>
+          </label>
           <button class="form-control btn btn-primary" type="submit">Add House</button>
         </form>
       </div>
@@ -144,6 +145,7 @@
     </div>
   </section>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="main.js" type="module"></script>
 </body>
 

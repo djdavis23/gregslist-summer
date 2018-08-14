@@ -1,47 +1,60 @@
 import Car from '../../models/Car.js'
 
-let cars = []
+//creates a new HTTP request object
+//@ts-ignore
+const carsAPI = axios.create({
+  //base connection url
+  baseURL: 'https://bcw-gregslist.herokuapp.com/api/cars/',
+  //only wait 3 seconds for a response
+  timeout: 3000
+})
 
 export default class CarService {
   constructor() {
 
   }
 
-  getCars() {
-    let carsCopy = []
-
-    //same as below
-    // for (let i = 0; i < cars.length; i++) {
-    //   const car = cars[i];
-
-    // }
-
-    // this is just saying for each 'car'
-    //  in the whole cars array do whatever is in the code block 
-    cars.forEach(car => {
-      carsCopy.push(new Car(
-        car.make,
-        car.model,
-        car.year,
-        car.price,
-        car.color,
-        car.imgUrl
-      ))
-    })
-    return carsCopy
+  getCars(draw, handleError) {
+    carsAPI.get()
+      .then(res => {
+        console.log(res.data)
+        let cars = res.data.data.map(c => {
+          return new Car(c)
+        })
+        draw(cars)
+      })
+      .catch(handleError)
   }
 
-  addCar(formData) {
-    let newCar = new Car(
-      formData.make.value,
-      formData.model.value,
-      formData.year.value,
-      formData.price.value,
-      formData.color.value,
-      formData.imgUrl.value
-    )
-    cars.push(newCar)
-    console.log(cars)
+  addCar(formData, draw, handleError) {
+    let newCar = new Car({
+      make: formData.make.value,
+      model: formData.model.value,
+      year: formData.year.value,
+      price: formData.price.value,
+      description: formData.description.value,
+      imgUrl: formData.imgUrl.value
+    })
+    //first parameter is any addition to base URL
+    //second parameter is object to pass
+    carsAPI.post('', newCar)
+      .then(res => {
+        this.getCars(draw, handleError)
+      })
+      .catch(handleError)
+  }
 
+  deleteCar(draw, handleError, id) {
+    carsAPI.delete(id)
+      .then(res => {
+        this.getCars(draw, handleError)
+      })
+      .catch(handleError)
+  }
+  bid(carID, update, draw, handleError) {
+    carsAPI.put(carID, update)
+      .then(res => {
+        this.getCars(draw, handleError)
+      })
   }
 }
