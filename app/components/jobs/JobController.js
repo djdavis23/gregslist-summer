@@ -1,46 +1,51 @@
 import JobService from "./JobService.js"
 let jobService = new JobService();
 
-function drawJobs() {
-  let jobs = jobService.getJobs();
+function drawJobs(jobs) {
+
   let template = '';
 
   jobs.forEach(job => {
     template += `
     <div class="card col-md-3">
-    <div class="card-header text-white bg-primary">
-      ${job.title}
+      <div class="card-header text-white bg-primary">
+        ${job.jobTitle}
+      </div>
+      <div class="card-body">
+        <p class="card-text">${job.description}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">${job.company}</li>
+        <li class="list-group-item">${job.hours}</li>
+        <li class="list-group-item">$${job.rate.toFixed(2)}</li>      
+      </ul>
+      <div class="card-body">
+        <button onclick="app.controllers.jobController.delete('${job._id}')">Delete</button>
+      </div>
     </div>
-    <div class="card-body">
-      <p class="card-text">${job.description}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${job.skills}</li>
-      <li class="list-group-item">${job.hours}</li>
-      <li class="list-group-item">${job.benefits}</li>
-      <li class="list-group-item">${job.pocName}</li>
-      <li class="list-group-item">${job.pocEmail}</li>
-    </ul>
-  </div>
     `
   })
   document.getElementById("jobs").innerHTML = template
+}
 
-
-
+function handleError(error) {
+  console.log(error.message)
 }
 
 
 export default class JobController {
   constructor() {
-    drawJobs();
+    jobService.getJobs(drawJobs, handleError)
   }
 
   addJob(event) {
     event.preventDefault();
     let formData = event.target;
-    jobService.addJob(formData);
+    jobService.addJob(formData, drawJobs, handleError);
     formData.reset();
-    drawJobs();
+  }
+
+  delete(jobID) {
+    jobService.delete(jobID, drawJobs, handleError)
   }
 }

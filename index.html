@@ -123,22 +123,22 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form id="job-form" class="form-group" onsubmit="app.controllers.jobController.addJob(event)">
-          <label for="title">Job Title</label>
-          <input class="form-control" type="text" name="title" placeholder="title" required>
-          <label for="description">Description</label>
-          <textarea name="descriptions" id="description" cols="30" rows="10" class="form-control" placeholder="Enter a brief description of duties here"
-            required></textarea>
-          <label for="skills">Skills Required</label>
-          <textarea name="skills" id="skills" cols="30" rows="5" class="form-control" placeholder="Enter list of required skills here"
-            required></textarea>
-          <label for="hours">Hours per Week</label>
-          <input type="number" class="form-control" name="hours" value="20" required>
-          <label for="benefits">Benefits</label>
-          <input type="text" class="form-control" name="benefits" placeholder="List benefits here or enter 'none'" required>
-          <label for="pocName">Point of Contact</label>
-          <input type="text" class="form-control" name="pocName" placeholder="Enter Name of Hiring Manger here" required>
-          <label for="pocEmail">Email</label>
-          <input type="email" class="form-control" name="pocEmail" placeholder="name@email.com" required>
+          <label for="jobTitle">Job Title
+            <input class="form-control" type="text" name="jobTitle" placeholder="job title" required>
+          </label>
+          <label for="description">Description
+            <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Enter a brief description of duties here"
+              required></textarea>
+          </label>
+          <label for="company">Company
+            <textarea name="company" id="company" cols="30" rows="5" class="form-control" placeholder="Company Name" required></textarea>
+          </label>
+          <label for="hours">Hours per Week
+            <input type="number" class="form-control" name="hours" value="20" required>
+          </label>
+          <label for="rate">Rate
+            <input type="number" class="form-control" name="rate" placeholder="hourly wage" required>
+          </label>
           <button class="btn btn-primary form-control" type="submit">Add Job</button>
         </form>
       </div>

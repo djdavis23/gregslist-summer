@@ -1,13 +1,12 @@
 
 
 export default class Job {
-  constructor(title, description, hours, skills, benefits, pocName, pocEmail) {
-    this.title = title
-    this.description = description
-    this.skills = skills
-    this.hours = hours
-    this.benefits = benefits
-    this.pocName = pocName
-    this.pocEmail = pocEmail
+  constructor(j) {
+    this.jobTitle = j.jobTitle
+    this.description = j.description
+    this.company = j.company
+    this.hours = j.hours
+    this.rate = j.rate
+    this._id = j._id
   }
 }

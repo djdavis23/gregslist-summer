@@ -14,6 +14,8 @@ function drawHouses(houses) {
         <p>Year Built: ${house.year}</p>
         <p>Price: $${house.price}</p>
         <img src="${house.imgUrl}" class="mb-2" height="125px" alt="somethingelse">
+        <button onclick="app.controllers.houseController.delete('${house._id}')">Delete</button>
+        <button onclick="app.controllers.houseController.bid('${house._id}',${house.price})">Bid</button>
     </div>
     `
   })
@@ -34,5 +36,17 @@ export default class HouseController {
     let formData = event.target;
     houseService.addHouse(formData, drawHouses, handleError);
     formData.reset();
+  }
+
+  delete(houseID) {
+    houseService.delete(houseID, drawHouses, handleError)
+  }
+
+  bid(id, price) {
+    price += 1000
+    let update = {
+      price: price
+    }
+    houseService.bid(id, update, drawHouses, handleError)
   }
 }

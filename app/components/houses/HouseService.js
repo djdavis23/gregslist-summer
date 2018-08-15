@@ -41,5 +41,21 @@ export default class HouseService {
       .catch(handleError)
   }
 
+  delete(hID, draw, error) {
+    houseAPI.delete(hID)
+      .then(res => {
+        this.getHouses(draw, error)
+      })
+      .catch(error)
+  }
+
+  bid(id, update, draw, error) {
+    houseAPI.put(id, update)
+      .then(res => {
+        this.getHouses(draw, error)
+      })
+      .catch(error)
+  }
+
 
 }
