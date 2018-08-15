@@ -1,5 +1,6 @@
 import JobService from "./JobService.js"
 let jobService = new JobService();
+const jobForm = document.getElementById("job-input")
 
 function drawJobs(jobs) {
 
@@ -7,7 +8,7 @@ function drawJobs(jobs) {
 
   jobs.forEach(job => {
     template += `
-    <div class="card col-md-3">
+    <div class="card col-md-3 mt-2">
       <div class="card-header text-white bg-primary">
         ${job.jobTitle}
       </div>
@@ -15,9 +16,9 @@ function drawJobs(jobs) {
         <p class="card-text">${job.description}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">${job.company}</li>
-        <li class="list-group-item">${job.hours}</li>
-        <li class="list-group-item">$${job.rate.toFixed(2)}</li>      
+        <li class="list-group-item"><strong>${job.company}</strong></li>
+        <li class="list-group-item">Hours per week: ${job.hours}</li>
+        <li class="list-group-item">Hourly Rate: $${job.rate.toFixed(2)}</li>      
       </ul>
       <div class="card-body">
         <button onclick="app.controllers.jobController.delete('${job._id}')">Delete</button>
@@ -40,6 +41,7 @@ export default class JobController {
 
   addJob(event) {
     event.preventDefault();
+    this.hideForm()
     let formData = event.target;
     jobService.addJob(formData, drawJobs, handleError);
     formData.reset();
@@ -47,5 +49,15 @@ export default class JobController {
 
   delete(jobID) {
     jobService.delete(jobID, drawJobs, handleError)
+  }
+
+  showForm() {
+    jobForm.classList.remove("hidden")
+    jobForm.classList.add("reveal")
+  }
+
+  hideForm() {
+    jobForm.classList.remove("reveal")
+    jobForm.classList.add("hidden")
   }
 }

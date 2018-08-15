@@ -6,15 +6,23 @@ header {
 }
 
 .content {
-  padding-top: 20px;
-  margin-top: 20px;
+  padding-top: 100px;
+  margin-top: 60px;
   z-index: -1;
 }
 
 header + .content {
-  padding-top: 100px;
+  padding-top: 110px;
 }
 
 .card {
   width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.reveal {
+  display: block;
 }

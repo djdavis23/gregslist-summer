@@ -15,35 +15,26 @@
   <header class="container-fluid text-white pt-3 pb-3">
     <div class="row">
       <div class="col-md-5">
-        <a class="btn btn-primary" href="#car-form">List a Car</a>
-        <a class="btn btn-primary" href="#house-form">List a House</a>
-        <a class="btn btn-primary" href="#job-form">Place Job Ad</a>
+        <button class="btn btn-primary" onclick="app.controllers.carController.showForm()">List a Car</button>
+        <button class="btn btn-primary" onclick="app.controllers.houseController.showForm()">List a House</button>
+        <button class="btn btn-primary" onclick="app.controllers.jobController.showForm()">Place Job Ad</button>
       </div>
       <div class="col-md-3">
         <h1>GREG'S LIST</h1>
       </div>
       <div class="col-md-4">
-        <a class="btn btn-success" href="#cars">See Cars</a>
-        <a class="btn btn-success" href="#houses">See Houses</a>
-        <a class="btn btn-success" href="#jobs">See Jobs</a>
+        <a class="btn btn-success" href="#car-list">See Cars</a>
+        <a class="btn btn-success" href="#house-list">See Houses</a>
+        <a class="btn btn-success" href="#job-list">See Jobs</a>
       </div>
     </div>
   </header>
 
+  <!-- FORM CONTAINER -->
   <section class="container-fluid content">
+    <!-- Add Car Form -->
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h2>Cars for Sale :</h2>
-      </div>
-    </div>
-    <div id="cars" class="row justify-content-center">
-
-      <!-- insert cars from controller here -->
-
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
+      <div id="car-input" class="col-md-6 offset-md-3 hidden">
         <form id="car-form" class="form-group" onsubmit="app.controllers.carController.addCar(event)">
           <div class="form-row">
             <div class="col">
@@ -83,21 +74,9 @@
         </form>
       </div>
     </div>
-  </section>
-  <section class="container-fluid content">
+    <!-- Add House Form -->
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h2>Houses for Sale :</h2>
-      </div>
-    </div>
-    <div id="houses" class="row justify-content-center">
-
-      <!-- insert houses from controller here -->
-
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
+      <div id="house-input" class="col-md-6 offset-md-3 hidden">
         <form id="house-form" class="form-group" onsubmit="app.controllers.houseController.addHouse(event)">
           <label for="bedrooms">#Bedrooms
             <input class="form-control" type="number" name="bedrooms" placeholder="#bedrooms" value="3" required>
@@ -124,24 +103,10 @@
         </form>
       </div>
     </div>
-  </section>
-  <section id="job-block" class="container-fluid content">
+    <!-- Add Job Form -->
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h2>Available Jobs :</h2>
-      </div>
-    </div>
-    <div id="jobs" class="row justify-content-center no-gutters">
-
-      <!-- insert jobs from controller here -->
-
-
-
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <form id="job-form" class="form-group" onsubmit="app.controllers.jobController.addJob(event)">
+      <div id="job-input" class="col-md-6 offset-md-3 hidden">
+        <form id="job-form " class="form-group " onsubmit="app.controllers.jobController.addJob(event) ">
           <div class="form-row">
             <div class="col-md-4">
               <label for="jobTitle">Job Title
@@ -155,7 +120,7 @@
               <label for="company">Company
                 <input class="form-control" type="text" name="company" placeholder="Company Name" required>
               </label>
-              <label for="hours">Hours per Week
+              <label for="hours ">Hours per Week
                 <input type="number" class="form-control" name="hours" value="20" required>
               </label>
             </div>
@@ -173,8 +138,55 @@
     </div>
   </section>
 
+  <!-- CARS CONTAINER -->
+  <section id="car-list" class="container-fluid content">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="text-primary">Cars for Sale :</h2>
+      </div>
+    </div>
+    <div id="cars" class="row justify-content-center">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+      <!-- insert cars from controller here -->
+
+    </div>
+    <hr />
+  </section>
+
+  <!-- HOUSES CONTAINER -->
+  <section id="house-list" class="container-fluid content">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="text-primary">Houses for Sale :</h2>
+      </div>
+    </div>
+    <div id="houses" class="row justify-content-center">
+
+      <!-- insert houses from controller here -->
+
+    </div>
+    <hr />
+  </section>
+
+  <!-- JOBS CONTAINER -->
+  <section id="job-list" class="container-fluid content">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="text-primary">Available Jobs :</h2>
+      </div>
+    </div>
+    <div id="jobs" class="row justify-content-center no-gutters">
+
+      <!-- insert jobs from controller here -->
+
+
+
+    </div>
+    <hr />
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js "></script>
   <script src="main.js" type="module"></script>
 </body>
 

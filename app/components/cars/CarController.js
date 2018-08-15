@@ -1,6 +1,8 @@
 import CarService from "./CarService.js";
 
 let carService = new CarService()
+const carForm = document.getElementById("car-input")
+
 
 function drawCars(cars) {
 
@@ -8,21 +10,22 @@ function drawCars(cars) {
 
   cars.forEach(car => {
     template += `
-    <div style="outline: 1px solid black" class="col-md-3">
+    <div style="outline: 1px solid black" class="col-md-3 pt-2 pb-2">
         <p>Make: ${car.make}</p>
         <p>Model: ${car.model}</p>
-        <p>Price: $${car.price}</p>
-        <button onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
+        <p>Price: $${car.price}</p>        
         <p>Year: ${car.year}</p>
         <p>Color: ${car.description}</p>
         <img src="${car.imgUrl}" height="125px" alt="somethingelse">
         <button onclick="app.controllers.carController.deleteCar('${car._id}')">DELETE</button>
+        <button onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
     </div>
     `
   })
 
   document.getElementById('cars').innerHTML = template
 }
+
 
 function handleError(error) {
   console.log(error.message)
@@ -34,12 +37,16 @@ export default class CarController {
     carService.getCars(drawCars, handleError)
   }
 
+
   addCar(triggeredEvent) {
     triggeredEvent.preventDefault();
     console.log(triggeredEvent)
+    // this.toggleForm()
+    this.hideForm()
     let formData = triggeredEvent.target
     carService.addCar(formData, drawCars, handleError)
     formData.reset()
+
   }
 
   deleteCar(id) {
@@ -52,6 +59,16 @@ export default class CarController {
       price: price
     }
     carService.bid(carID, update, drawCars, handleError)
+  }
+
+  showForm() {
+    carForm.classList.remove("hidden")
+    carForm.classList.add("reveal")
+  }
+
+  hideForm() {
+    carForm.classList.remove("reveal")
+    carForm.classList.add("hidden")
   }
 
 }
