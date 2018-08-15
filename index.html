@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Gregslist</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-DfbCiBdRiiNWvRTbHe5X9IfkezKzm0pCrZSKc7EM9mmSl/OyckwbYk3GrajL8Ngy"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
-  <header class="container">
+  <header class="container-fluid text-white pt-3 pb-3">
     <div class="row">
       <div class="col-md-5">
         <a class="btn btn-primary" href="#car-form">List a Car</a>
@@ -28,56 +29,73 @@
       </div>
     </div>
   </header>
-  <section class="container">
+
+  <section class="container-fluid content">
     <div class="row">
       <div class="col-md-12 text-center">
         <h2>Cars for Sale :</h2>
       </div>
     </div>
-    <div id="cars" class="row">
+    <div id="cars" class="row justify-content-center">
 
       <!-- insert cars from controller here -->
 
     </div>
+    <hr />
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form id="car-form" class="form-group" onsubmit="app.controllers.carController.addCar(event)">
           <div class="form-row">
             <div class="col">
-              <label for="year">Year</label>
-              <input class="form-control" type="number" name="year" placeholder="Year" value="2000" required>
+              <label for="year">Year
+                <input class="form-control" type="number" name="year" placeholder="Year" value="2000" required>
+              </label>
             </div>
             <div class="col">
-              <label for="make">Make</label>
-              <input class="form-control" type="text" name="make" placeholder="Make" required>
+              <label for="make">Make
+                <input class="form-control" type="text" name="make" placeholder="Make" required>
+              </label>
             </div>
             <div class="col">
-              <label for="model">Model</label>
-              <input class="form-control" type="text" name="model" placeholder="Model" required>
+              <label for="model">Model
+                <input class="form-control" type="text" name="model" placeholder="Model" required>
+              </label>
             </div>
           </div>
-          <label for="price">Price</label>
-          <input class="form-control" type="text" name="price" placeholder="Price" required>
-          <label for="Description">Description</label>
-          <input class="form-control" type="text" name="description" placeholder="Brief Description" required>
-          <label for="imgUrl">Image</label>
-          <input class="form-control" type="url" name="imgUrl" placeholder="Image Link" required>
+          <div class="form-row">
+            <div class="col">
+              <label for="price">Price
+                <input class="form-control" type="text" name="price" placeholder="Price" required>
+              </label>
+            </div>
+            <div class="col">
+              <label for="Description">Description
+                <input class="form-control" type="text" name="description" placeholder="Brief Description" required>
+              </label>
+            </div>
+            <div class="col">
+              <label for="imgUrl">Image
+                <input class="form-control" type="url" name="imgUrl" placeholder="Image Link" required>
+              </label>
+            </div>
+          </div>
           <button class="form-control btn btn-primary" type="submit">Add Car</button>
         </form>
       </div>
     </div>
   </section>
-  <section class="container">
+  <section class="container-fluid content">
     <div class="row">
       <div class="col-md-12 text-center">
         <h2>Houses for Sale :</h2>
       </div>
     </div>
-    <div id="houses" class="row">
+    <div id="houses" class="row justify-content-center">
 
       <!-- insert houses from controller here -->
 
     </div>
+    <hr />
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form id="house-form" class="form-group" onsubmit="app.controllers.houseController.addHouse(event)">
@@ -107,43 +125,54 @@
       </div>
     </div>
   </section>
-  <section id="job-block" class="container">
+  <section id="job-block" class="container-fluid content">
     <div class="row">
       <div class="col-md-12 text-center">
         <h2>Available Jobs :</h2>
       </div>
     </div>
-    <div id="jobs" class="row">
+    <div id="jobs" class="row justify-content-center no-gutters">
 
       <!-- insert jobs from controller here -->
 
 
 
     </div>
+    <hr />
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form id="job-form" class="form-group" onsubmit="app.controllers.jobController.addJob(event)">
-          <label for="jobTitle">Job Title
-            <input class="form-control" type="text" name="jobTitle" placeholder="job title" required>
-          </label>
-          <label for="description">Description
-            <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Enter a brief description of duties here"
-              required></textarea>
-          </label>
-          <label for="company">Company
-            <textarea name="company" id="company" cols="30" rows="5" class="form-control" placeholder="Company Name" required></textarea>
-          </label>
-          <label for="hours">Hours per Week
-            <input type="number" class="form-control" name="hours" value="20" required>
-          </label>
-          <label for="rate">Rate
-            <input type="number" class="form-control" name="rate" placeholder="hourly wage" required>
-          </label>
+          <div class="form-row">
+            <div class="col-md-4">
+              <label for="jobTitle">Job Title
+                <input class="form-control" type="text" name="jobTitle" placeholder="job title" required>
+              </label>
+              <label for="rate">Rate
+                <input type="number" class="form-control" name="rate" placeholder="hourly wage" required>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label for="company">Company
+                <input class="form-control" type="text" name="company" placeholder="Company Name" required>
+              </label>
+              <label for="hours">Hours per Week
+                <input type="number" class="form-control" name="hours" value="20" required>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label for="description">Description
+                <textarea name="description" id="description" cols="30" rows="5" class="form-control" placeholder="Enter a brief description of duties here"
+                  required></textarea>
+              </label>
+            </div>
+          </div>
+
           <button class="btn btn-primary form-control" type="submit">Add Job</button>
         </form>
       </div>
     </div>
   </section>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="main.js" type="module"></script>
