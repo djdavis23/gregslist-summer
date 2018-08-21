@@ -18,11 +18,9 @@ function drawJobs(jobs) {
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><strong>${job.company}</strong></li>
         <li class="list-group-item">Hours per week: ${job.hours}</li>
-        <li class="list-group-item">Hourly Rate: $${job.rate.toFixed(2)}</li>      
-      </ul>
-      <div class="card-body">
-        <button onclick="app.controllers.jobController.delete('${job._id}')">Delete</button>
-      </div>
+        <li class="list-group-item">Hourly Rate: $${job.rate.toFixed(2)}</li>
+        <li class="list-group-item"><button class="btn btn-danger" onclick="app.controllers.jobController.delete('${job._id}')">Delete</button></li>      
+      </ul>      
     </div>
     `
   })

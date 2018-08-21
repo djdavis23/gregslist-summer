@@ -11,14 +11,16 @@ function drawCars(cars) {
   cars.forEach(car => {
     template += `
     <div style="outline: 1px solid black" class="col-md-3 pt-2 pb-2">
-        <p>Make: ${car.make}</p>
-        <p>Model: ${car.model}</p>
-        <p>Price: $${car.price}</p>        
-        <p>Year: ${car.year}</p>
-        <p>Color: ${car.description}</p>
-        <img src="${car.imgUrl}" height="125px" alt="somethingelse">
-        <button onclick="app.controllers.carController.deleteCar('${car._id}')">DELETE</button>
-        <button onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
+      <p>Make: ${car.make}</p>
+      <p>Model: ${car.model}</p>
+      <p>Price: $${car.price}</p>        
+      <p>Year: ${car.year}</p>
+      <p>Color: ${car.description}</p>
+      <img src="${car.imgUrl}" width="100%" alt="somethingelse">
+      <div class="mt-2">
+        <button class="btn btn-danger"onclick="app.controllers.carController.deleteCar('${car._id}')">DELETE</button>
+        <button class="btn btn-success" onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
+      </div>   
     </div>
     `
   })
