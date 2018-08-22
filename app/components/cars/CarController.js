@@ -66,6 +66,7 @@ export default class CarController {
   showForm() {
     carForm.classList.remove("hidden")
     carForm.classList.add("reveal")
+    carForm.scrollIntoView(false)
   }
 
   hideForm() {

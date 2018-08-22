@@ -52,6 +52,7 @@ export default class JobController {
   showForm() {
     jobForm.classList.remove("hidden")
     jobForm.classList.add("reveal")
+    jobForm.scrollIntoView(false)
   }
 
   hideForm() {

@@ -57,6 +57,7 @@ export default class HouseController {
   showForm() {
     houseForm.classList.remove("hidden")
     houseForm.classList.add("reveal")
+    houseForm.scrollIntoView(false)
   }
 
   hideForm() {
